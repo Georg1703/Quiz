@@ -1,0 +1,700 @@
+{
+	"info": {
+		"_postman_id": "8afc30c8-c0e2-443d-9469-b2584b7e28b9",
+		"name": "QuizTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "UserRegister",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "second_user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "second_user",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "second_user@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/accounts/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/accounts/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RefreshToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "refresh",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0MzQ2NjUwNSwiaWF0IjoxNjQzMzgwMTA1LCJqdGkiOiI1ZDY4YzU1Yzk3ODI0NjY2YTU2Y2ZhYTYxNmM2MjFkYiIsInVzZXJfaWQiOjR9.dBgfWdA-Ds6wqYjLHJg7fkLrxMx9UwqR7ovTlUHmjCw",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/accounts/refresh-token/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"refresh-token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/accounts/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RetrieveUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/accounts/6/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"6",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/accounts/4/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"4",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg2MTU5LCJpYXQiOjE2NDMzODAxMDUsImp0aSI6IjBjZDRiOTkzYTBiZDQ3NWFhOTBmOThjNDk0MWJkMjcyIiwidXNlcl9pZCI6NH0.RKAQiz1NyqlylG1qBAot9pxs4b2vH-T1An5P4Yi3bpo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/accounts/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserOwnData",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg2MTU5LCJpYXQiOjE2NDMzODAxMDUsImp0aSI6IjBjZDRiOTkzYTBiZDQ3NWFhOTBmOThjNDk0MWJkMjcyIiwidXNlcl9pZCI6NH0.RKAQiz1NyqlylG1qBAot9pxs4b2vH-T1An5P4Yi3bpo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/accounts/personal-data/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"accounts",
+								"personal-data",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quizzes",
+			"item": [
+				{
+					"name": "GetAllQuizzes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/quizzes",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"quizzes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RetrieveQuiz",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/quizzes/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"quizzes",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateQuiz",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "First quiz but not second",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/quizzes/5/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"quizzes",
+								"5",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteQuiz",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/quizzes/7/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"quizzes",
+								"7",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsersRankPerQuiz",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/quizzes/5/users-rank",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"quizzes",
+								"5",
+								"users-rank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsersGlobalRank",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/quizzes/users-rank",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"quizzes",
+								"users-rank"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Questions",
+			"item": [
+				{
+					"name": "GetAllQuestions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/questions",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RetrieveQuestion",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/questions/13",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"questions",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateQuestion",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question",
+									"value": "Some question for test here",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/questions/13/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"questions",
+								"13",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteQuestion",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/questions/13/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"questions",
+								"13",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutAnswer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/questions/13/answers/31/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"questions",
+								"13",
+								"answers",
+								"31",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Answers",
+			"item": [
+				{
+					"name": "GetAllAnswers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/answers/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"answers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RetrieveAnswer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/answers/32",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"answers",
+								"32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAnswer",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "answer",
+									"value": "Fourth answer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/answers/30/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"answers",
+								"30",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAnswer",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

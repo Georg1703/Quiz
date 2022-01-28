@@ -1,4 +1,3 @@
-from dataclasses import field
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 from django.core.exceptions import ObjectDoesNotExist
@@ -43,11 +42,12 @@ class AnswerSerializer(serializers.ModelSerializer):
         fields = ('id', 'answer', 'is_right', 'question', 'created_at')
 
     def validate(self, data):
-        question = Question.objects.get(id=data['question'].id)
+        if 'question' in data:
+            question = Question.objects.get(id=data['question'].id)
 
-        if question.question_type == 1:
-            if Answer.objects.filter(question=question.id).count() >= 2:
-                raise serializers.ValidationError("For that type of question are alowed only 2 answers")
+            if question.question_type == 1:
+                if Answer.objects.filter(question=question.id).count() >= 2:
+                    raise serializers.ValidationError("For that type of question are alowed only 2 answers")
         return data
 
 
@@ -69,4 +69,10 @@ class UserAnswerSerializer(serializers.ModelSerializer):
             Answer.objects.get(id=data['answer'].id, question=self.context['question'])
         except ObjectDoesNotExist:
             raise serializers.ValidationError("Question with that answer does not exist")
+
+        answers = Answer.objects.filter(question=self.context['question']).values_list('id', flat=True)
+        for answer in answers:
+            if answer in UserAnswer.objects.filter(user=data['user']).values_list('answer', flat=True):
+                raise serializers.ValidationError("Only one answer per question is alowed")
+
         return data
