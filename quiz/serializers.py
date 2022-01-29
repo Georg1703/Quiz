@@ -47,7 +47,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 
             if question.question_type == 1:
                 if Answer.objects.filter(question=question.id).count() >= 2:
-                    raise serializers.ValidationError("For that type of question are alowed only 2 answers")
+                    raise serializers.ValidationError("For that type of question are allowed only 2 answers")
         return data
 
 
@@ -73,6 +73,6 @@ class UserAnswerSerializer(serializers.ModelSerializer):
         answers = Answer.objects.filter(question=self.context['question']).values_list('id', flat=True)
         for answer in answers:
             if answer in UserAnswer.objects.filter(user=data['user']).values_list('answer', flat=True):
-                raise serializers.ValidationError("Only one answer per question is alowed")
+                raise serializers.ValidationError("Only one answer per question is allowed")
 
         return data

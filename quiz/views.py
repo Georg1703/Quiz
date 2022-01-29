@@ -1,16 +1,16 @@
-from rest_framework import viewsets, mixins
+from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import action
 from django.contrib.auth.models import User
 
 from quiz.serializers import (
-    QuizSerializer, 
-    RetrieveQuizSerializer, 
+    QuizSerializer,
+    RetrieveQuizSerializer,
     QuestionSerializer,
     RetrieveQuestionSerializer,
-    AnswerSerializer, 
-    UserAnswerSerializer 
+    AnswerSerializer,
+    UserAnswerSerializer
 )
 from quiz.models import Quiz, Question, Answer, UserAnswer
 
@@ -18,20 +18,15 @@ from quiz.models import Quiz, Question, Answer, UserAnswer
 ACTIONS_FOR_ADMIN = ['create', 'update', 'partial_update', 'destroy']
 
 
-class QuizViewSet(mixins.CreateModelMixin,
-                mixins.RetrieveModelMixin,
-                mixins.DestroyModelMixin,
-                mixins.ListModelMixin,
-                mixins.UpdateModelMixin,
-                viewsets.GenericViewSet):
+class QuizViewSet(viewsets.ModelViewSet):
 
     queryset = Quiz.objects.all()
     serializer_class = QuizSerializer
 
     def get_permissions(self):
         if self.action in ACTIONS_FOR_ADMIN:
-            return (IsAdminUser(),)
-        return (IsAuthenticated(),)
+            return IsAdminUser(),
+        return IsAuthenticated(),
 
     def get_serializer_class(self):
         if self.action == 'retrieve':
@@ -55,7 +50,6 @@ class QuizViewSet(mixins.CreateModelMixin,
 
         return Response({k: v for k, v in sorted(dct.items(), key=lambda item: item[1], reverse=True)})
 
-
     # NEED OPTIMIZATION
     @action(detail=False, url_path='users-rank')
     def get_user_global_top(self, request, pk=None):
@@ -72,21 +66,16 @@ class QuizViewSet(mixins.CreateModelMixin,
 
         return Response({k: v for k, v in sorted(dct.items(), key=lambda item: item[1], reverse=True)})
 
-    
-class QuestionViewSet(mixins.CreateModelMixin,
-                    mixins.RetrieveModelMixin,
-                    mixins.DestroyModelMixin,
-                    mixins.ListModelMixin,
-                    mixins.UpdateModelMixin,
-                    viewsets.GenericViewSet):
+
+class QuestionViewSet(viewsets.ModelViewSet):
 
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
 
     def get_permissions(self):
         if self.action in ACTIONS_FOR_ADMIN:
-            return (IsAdminUser(),)
-        return (IsAuthenticated(),)
+            return IsAdminUser(),
+        return IsAuthenticated(),
 
     def get_serializer_class(self):
         if self.action == 'retrieve':
@@ -102,12 +91,7 @@ class QuestionViewSet(mixins.CreateModelMixin,
         return Response(serializer.data)
 
 
-class AnswerViewSet(mixins.CreateModelMixin,
-                    mixins.RetrieveModelMixin,
-                    mixins.DestroyModelMixin,
-                    mixins.ListModelMixin,
-                    mixins.UpdateModelMixin,
-                    viewsets.GenericViewSet):
+class AnswerViewSet(viewsets.ModelViewSet):
 
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer

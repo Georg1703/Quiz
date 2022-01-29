@@ -6,8 +6,6 @@ from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 
 from account.serializers import RegisterSerializer, UserSerializer
 
-import json
-
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -16,14 +14,14 @@ class RegisterView(generics.CreateAPIView):
 
 
 class UserViewSet(mixins.RetrieveModelMixin,
-                mixins.DestroyModelMixin,
-                mixins.ListModelMixin,
-                mixins.UpdateModelMixin,
-                viewsets.GenericViewSet):
+                  mixins.DestroyModelMixin,
+                  mixins.ListModelMixin,
+                  mixins.UpdateModelMixin,
+                  viewsets.GenericViewSet):
+    
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (IsAdminUser,)
-
 
     @action(detail=False, url_path='personal-data', permission_classes=(IsAuthenticated,))
     def get_user_data(self, request, pk=None):
