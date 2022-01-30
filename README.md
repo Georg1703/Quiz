@@ -52,6 +52,9 @@ python manage.py runserver
 # ALL ENDPOINTS STARTS WITH localhost:8000/api/
 
 # Visit endpoint accounts/login/ to get access token
+
+# All requests must contain access token, example: Bearer YOUR_TOKEN_HERE
+
 # Visit endpoint quizzes/ to create one quiz
 # Visit endpoint questions/ to create one question
 # Visit endpoint answers/ to create one answer
