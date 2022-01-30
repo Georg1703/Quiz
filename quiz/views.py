@@ -33,36 +33,25 @@ class QuizViewSet(viewsets.ModelViewSet):
             return RetrieveQuizSerializer
         return QuizSerializer
 
-    # NEED OPTIMIZATION
     @action(detail=True, url_path='users-rank')
     def get_user_top_per_quiz(self, request, pk=None):
         dct = {}
 
-        for user in User.objects.exclude(is_superuser=True):
-            user_answers = UserAnswer.objects.filter(user=user)
-            dct[user.username] = 0
-            if user_answers:
-                for user_answer in user_answers:
-                    right_answers = Answer.objects.filter(is_right=True).filter(id=user_answer.answer.id)
-                    for answer in right_answers:
-                        if answer.question.quiz.id == int(pk):
-                            dct[user.username] += answer.question.points
+        for elem in UserAnswer.objects.all().select_related('answer', 'user'):
+            dct[elem.user.username] = 0
+            if elem.answer.is_right and elem.answer.question.id == int(pk):
+                dct[elem.user.username] += elem.answer.question.points
 
         return Response({k: v for k, v in sorted(dct.items(), key=lambda item: item[1], reverse=True)})
 
-    # NEED OPTIMIZATION
     @action(detail=False, url_path='users-rank')
     def get_user_global_top(self, request, pk=None):
         dct = {}
 
-        for user in User.objects.exclude(is_superuser=True):
-            user_answers = UserAnswer.objects.filter(user=user)
-            dct[user.username] = 0
-            if user_answers:
-                for user_answer in user_answers:
-                    right_answers = Answer.objects.filter(is_right=True).filter(id=user_answer.answer.id)
-                    for answer in right_answers:
-                        dct[user.username] += answer.question.points
+        for elem in UserAnswer.objects.all().select_related('answer', 'user'):
+            dct[elem.user.username] = 0
+            if elem.answer.is_right:
+                dct[elem.user.username] += elem.answer.question.points
 
         return Response({k: v for k, v in sorted(dct.items(), key=lambda item: item[1], reverse=True)})
 
