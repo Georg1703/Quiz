@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8afc30c8-c0e2-443d-9469-b2584b7e28b9",
+		"_postman_id": "c9845430-2e8b-4749-a499-cc3350ed3f12",
 		"name": "QuizTest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -59,12 +59,12 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "admin",
+									"value": "second_user",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "admin",
+									"value": "second_user",
 									"type": "text"
 								}
 							]
@@ -187,7 +187,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTQ2MDY5LCJpYXQiOjE2NDM1NDA2NjksImp0aSI6ImFlNmIwMjkyMTZmOTQwM2Q4OTE5MTZlM2ZmNTI0YThhIiwidXNlcl9pZCI6MX0.EYvmEWRmzTlcnwcWbN1bb09-1lqp8dhNBcYDs6DSWfw",
 								"type": "text"
 							}
 						],
@@ -196,13 +196,13 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "admin",
+									"value": "second_user",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:8000/api/accounts/4/",
+							"raw": "localhost:8000/api/accounts/2/",
 							"host": [
 								"localhost"
 							],
@@ -210,7 +210,7 @@
 							"path": [
 								"api",
 								"accounts",
-								"4",
+								"2",
 								""
 							]
 						}
@@ -250,7 +250,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg2MTU5LCJpYXQiOjE2NDMzODAxMDUsImp0aSI6IjBjZDRiOTkzYTBiZDQ3NWFhOTBmOThjNDk0MWJkMjcyIiwidXNlcl9pZCI6NH0.RKAQiz1NyqlylG1qBAot9pxs4b2vH-T1An5P4Yi3bpo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTQwNzA0LCJpYXQiOjE2NDM1MzUzMDQsImp0aSI6IjNkN2M0MTE3ZmYyMzQyNjk4MzBlZjdhNWUzZTdiZGI5IiwidXNlcl9pZCI6MX0.hw6165MdvwcjLdh12HQjwNhk2gIc3wPiK9UZt0R_TMM",
 								"type": "text"
 							}
 						],
@@ -276,13 +276,49 @@
 			"name": "Quizzes",
 			"item": [
 				{
+					"name": "CreateQuiz",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDczNDY5LCJpYXQiOjE2NDM0NjgwNjksImp0aSI6IjI2MmQ1ODFlOTJlODQ3ZjA4Y2I0YzNmYzhjNmZlYWU5IiwidXNlcl9pZCI6Mn0.L7gDd8zI10gl0P_hLiP7k3ACVsbkIkjPuMxeiGHziAI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "New quiz right there",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/quizzes/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"quizzes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GetAllQuizzes",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDczNDY5LCJpYXQiOjE2NDM0NjgwNjksImp0aSI6IjI2MmQ1ODFlOTJlODQ3ZjA4Y2I0YzNmYzhjNmZlYWU5IiwidXNlcl9pZCI6Mn0.L7gDd8zI10gl0P_hLiP7k3ACVsbkIkjPuMxeiGHziAI",
 								"type": "text"
 							}
 						],
@@ -307,12 +343,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDc3NjgzLCJpYXQiOjE2NDM0NzIyODMsImp0aSI6Ijc1NDNiYjk5ODUwNjRhNTNiOGRkYTMyYmE1MTJkYmExIiwidXNlcl9pZCI6MX0.Yp_JipUhfQNohuoznoIGx-FBc6St_-ImEVL6jyW_Pv4",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/quizzes/5",
+							"raw": "localhost:8000/api/quizzes/1",
 							"host": [
 								"localhost"
 							],
@@ -320,7 +356,7 @@
 							"path": [
 								"api",
 								"quizzes",
-								"5"
+								"1"
 							]
 						}
 					},
@@ -333,7 +369,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDc1NzQxLCJpYXQiOjE2NDM0NzAzNDEsImp0aSI6ImNhYmUzMzkyNDg1NTRjMzBiYjBkN2M4NmNiMTk4ZTU1IiwidXNlcl9pZCI6MX0.ABCHdXvOPu_vWlMBpslrYKwRAkM1TUVyE0GQRk3bh-U",
 								"type": "text"
 							}
 						],
@@ -342,13 +378,13 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "First quiz but not second",
+									"value": "First quiz but not",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:8000/api/quizzes/5/",
+							"raw": "localhost:8000/api/quizzes/1/",
 							"host": [
 								"localhost"
 							],
@@ -356,7 +392,7 @@
 							"path": [
 								"api",
 								"quizzes",
-								"5",
+								"1",
 								""
 							]
 						}
@@ -397,7 +433,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDc4MzYwLCJpYXQiOjE2NDM0NzI5NjAsImp0aSI6IjUxMzAxMTM1ZDljMzQ2ODA5NmYwNWNiMjhlNzBhOWRlIiwidXNlcl9pZCI6Mn0.eam6hyv3wAEwg5-rFvmn2DzyHl8dSZCmszXu3l4WekU",
 								"type": "text"
 							}
 						],
@@ -424,7 +460,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTQwNzA0LCJpYXQiOjE2NDM1MzUzMDQsImp0aSI6IjNkN2M0MTE3ZmYyMzQyNjk4MzBlZjdhNWUzZTdiZGI5IiwidXNlcl9pZCI6MX0.hw6165MdvwcjLdh12HQjwNhk2gIc3wPiK9UZt0R_TMM",
 								"type": "text"
 							}
 						],
@@ -448,6 +484,52 @@
 		{
 			"name": "Questions",
 			"item": [
+				{
+					"name": "CreateQuestion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTM3NjMxLCJpYXQiOjE2NDM1MzIyMzEsImp0aSI6IjNiNGRjYTA5ODFiZDQzYTk4MjE1NjJkY2JjYzUxYzY5IiwidXNlcl9pZCI6MX0.Xf45IKPzanuHDDTmx0u0j5dKNZ3gH_6Bx-YCdyE-cyQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question",
+									"value": "Some question here",
+									"type": "text"
+								},
+								{
+									"key": "points",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "quiz",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/questions/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "GetAllQuestions",
 					"request": {
@@ -570,12 +652,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTQzNzAwLCJpYXQiOjE2NDM1MzgzMDAsImp0aSI6IjNlMzYxOWE5MTY1ZDQzYzc4ZmYxNjlkNjNlY2NiZDI1IiwidXNlcl9pZCI6Mn0.OL8PwxfyS6aAQ1japkEOpIuMYN78zw-JS8fFwFNiTJM",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/questions/13/answers/31/",
+							"raw": "localhost:8000/api/questions/1/answers/2/",
 							"host": [
 								"localhost"
 							],
@@ -583,9 +665,9 @@
 							"path": [
 								"api",
 								"questions",
-								"13",
+								"1",
 								"answers",
-								"31",
+								"2",
 								""
 							]
 						}
@@ -598,13 +680,54 @@
 			"name": "Answers",
 			"item": [
 				{
+					"name": "CreateAnswer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTQwNzA0LCJpYXQiOjE2NDM1MzUzMDQsImp0aSI6IjNkN2M0MTE3ZmYyMzQyNjk4MzBlZjdhNWUzZTdiZGI5IiwidXNlcl9pZCI6MX0.hw6165MdvwcjLdh12HQjwNhk2gIc3wPiK9UZt0R_TMM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "answer",
+									"value": "Some answer here",
+									"type": "text"
+								},
+								{
+									"key": "question",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/answers/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"answers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GetAllAnswers",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTQwNzA0LCJpYXQiOjE2NDM1MzUzMDQsImp0aSI6IjNkN2M0MTE3ZmYyMzQyNjk4MzBlZjdhNWUzZTdiZGI5IiwidXNlcl9pZCI6MX0.hw6165MdvwcjLdh12HQjwNhk2gIc3wPiK9UZt0R_TMM",
 								"type": "text"
 							}
 						],
@@ -630,12 +753,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTQwNzA0LCJpYXQiOjE2NDM1MzUzMDQsImp0aSI6IjNkN2M0MTE3ZmYyMzQyNjk4MzBlZjdhNWUzZTdiZGI5IiwidXNlcl9pZCI6MX0.hw6165MdvwcjLdh12HQjwNhk2gIc3wPiK9UZt0R_TMM",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/answers/32",
+							"raw": "localhost:8000/api/answers/2",
 							"host": [
 								"localhost"
 							],
@@ -643,7 +766,7 @@
 							"path": [
 								"api",
 								"answers",
-								"32"
+								"2"
 							]
 						}
 					},
@@ -656,7 +779,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzMzg3MTAwLCJpYXQiOjE2NDMzODE3MDAsImp0aSI6ImU3MzY0Mzk0MzExNTQ3MGM4MDUzYzJjNzdlYTZlOTM0IiwidXNlcl9pZCI6NH0.HMbsBHUU4i050_gD_61t-MJXOpbV3HlidbUL0ybkU_E",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTQwNzA0LCJpYXQiOjE2NDM1MzUzMDQsImp0aSI6IjNkN2M0MTE3ZmYyMzQyNjk4MzBlZjdhNWUzZTdiZGI5IiwidXNlcl9pZCI6MX0.hw6165MdvwcjLdh12HQjwNhk2gIc3wPiK9UZt0R_TMM",
 								"type": "text"
 							}
 						],
@@ -689,8 +812,26 @@
 				{
 					"name": "DeleteAnswer",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNTQwNzA0LCJpYXQiOjE2NDM1MzUzMDQsImp0aSI6IjNkN2M0MTE3ZmYyMzQyNjk4MzBlZjdhNWUzZTdiZGI5IiwidXNlcl9pZCI6MX0.hw6165MdvwcjLdh12HQjwNhk2gIc3wPiK9UZt0R_TMM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/answers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"answers",
+								"1"
+							]
+						}
 					},
 					"response": []
 				}

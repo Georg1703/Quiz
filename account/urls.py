@@ -5,10 +5,10 @@ from rest_framework import routers
 from account.views import RegisterView, UserViewSet
 
 router = routers.SimpleRouter()
-router.register(r'', UserViewSet)
+router.register(r'', UserViewSet, 'accounts')
 
 urlpatterns = [
-    path('login/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('login/', jwt_views.TokenObtainPairView.as_view(), name='login'),
     path('register/', RegisterView.as_view(), name='register'),
     path('refresh-token/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ] + router.urls

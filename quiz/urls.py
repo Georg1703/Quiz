@@ -5,8 +5,8 @@ from quiz.views import QuizViewSet, QuestionViewSet, AnswerViewSet
 
 router = routers.SimpleRouter()
 
-router.register(r'quizzes', QuizViewSet)
-router.register(r'questions', QuestionViewSet)
-router.register(r'answers', AnswerViewSet)
+router.register(r'quizzes', QuizViewSet, 'quizzes')
+router.register(r'questions', QuestionViewSet, 'questions')
+router.register(r'answers', AnswerViewSet, 'answers')
 
 urlpatterns = router.urls
