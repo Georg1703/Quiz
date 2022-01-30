@@ -37,8 +37,8 @@ class AccountViewsTestCase(APITestCase):
         response = self.client.post(url, data)
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(User.objects.count(), 1)
-        self.assertEqual(User.objects.get().email, 'test_user@gmail.com')
+        self.assertEqual(User.objects.count(), 3)
+        self.assertEqual(User.objects.get(id=3).email, 'test_user@gmail.com')
 
     def test_login_user(self):
         user = User.objects.create(username='test_user')
